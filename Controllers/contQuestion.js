@@ -9,4 +9,20 @@ const Question = async (req, res) => {
   }
 };
 
-export default Question;
+const QuestionPost = async (req, res) => {
+  try {
+    const { type, question, correct_answer, incorrect_answers } = req.body;
+    const newQuestion = new modelQuestion({
+      type,
+      question,
+      correct_answer,
+      incorrect_answers,
+    });
+    await newQuestion.save();
+    res.status(201).json(newQuestion);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+export { Question, QuestionPost };

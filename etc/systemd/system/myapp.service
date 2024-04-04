@@ -1,0 +1,17 @@
+[Unit]
+Description=Node.js App Assessment System
+After=network.target multi-user.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/NodeJs-Assessment
+ExecStart=npm start
+Restart=always
+Environment=NODE_ENV=production
+EnvironmentFile=.env
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=myapp
+
+[Install]
+WantedBy=multi-user.target

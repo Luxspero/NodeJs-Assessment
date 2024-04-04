@@ -1,0 +1,30 @@
+sudo chmod 600 /etc/app.env
+sudo chown ubuntu:ubuntu /etc/app.env
+
+sudo vim /etc/systemd/system/myapp.service
+
+
+[Unit]
+Description=Node.js App
+After=network.target multi-user.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/app
+ExecStart=/usr/bin/npm start
+Restart=always
+Environment=NODE_ENV=production
+EnvironmentFile=/etc/app.env
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=myapp
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable myapp.service
+sudo systemctl start myapp.service
+
+sudo systemctl status myapp.service

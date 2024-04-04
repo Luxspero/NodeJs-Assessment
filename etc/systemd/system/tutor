@@ -1,5 +1,5 @@
-sudo chmod 600 /etc/app.env
-sudo chown ubuntu:ubuntu /etc/app.env
+sudo chmod 600 .env
+sudo chown ubuntu:ubuntu .env
 
 sudo vim /etc/systemd/system/myapp.service
 
@@ -24,7 +24,7 @@ WantedBy=multi-user.target
 
 
 sudo systemctl daemon-reload
-sudo systemctl enable myapp.service
-sudo systemctl start myapp.service
+sudo systemctl enable assessmentApp.service
+sudo systemctl start assessmentApp.service
 
-sudo systemctl status myapp.service
+sudo systemctl status assessmentApp.service

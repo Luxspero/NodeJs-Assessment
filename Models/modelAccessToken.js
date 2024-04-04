@@ -6,4 +6,4 @@ const accessTokenModel = new mongoose.Schema({
   ip_address: String,
 });
 
-export default mongoose.model("access_token", accessTokenModel);
+export default mongoose.model("access_tokens", accessTokenModel);

@@ -7,4 +7,4 @@ const questionModel = new mongoose.Schema({
   incorrect_answers: Array,
 });
 
-export default mongoose.model("question", questionModel);
+export default mongoose.model("questions", questionModel);

@@ -1,7 +1,7 @@
 sudo chmod 600 .env
 sudo chown ubuntu:ubuntu .env
 
-sudo vim /etc/systemd/system/myapp.service
+sudo vim /etc/systemd/system/assessmentApp.service
 
 
 [Unit]
